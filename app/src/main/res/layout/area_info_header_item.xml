@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="8dp"
+    android:background="@android:color/white"
+    >
+
+    <ImageView
+        android:id="@+id/area_info_header_img"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        tools:background="@android:color/holo_red_dark"
+        tools:layout_height="250dp"
+        />
+
+    <TextView
+        android:id="@+id/area_info_header_info"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/area_info_header_img"
+        android:layout_margin="8dp"
+        android:textColor="#333333"
+        tools:text="企鵝館是「國王企鵝」及「黑腳企鵝」的家，牠們是不會飛的水生鳥類，牠們全是游泳的專家，在水裡潛泳可以「飛」得又快又好。在觀賞可愛的企鵝之餘，也可以在企鵝館了解牠們的分布、形態特徵、生活習性及繁殖求偶行為喔！"
+        />
+
+    <TextView
+        android:id="@+id/area_info_header_memo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/area_info_header_info"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        tools:text="每個月第三個週一休館"
+        />
+
+    <TextView
+        android:id="@+id/area_info_header_url"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/area_info_header_memo"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:textColor="#5599FF"
+        android:text="在網頁開啟"
+        />
+
+    <TextView
+        android:id="@+id/area_info_header_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/area_info_header_memo"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        tools:text="室內區"
+        />
+
+</android.support.constraint.ConstraintLayout>
