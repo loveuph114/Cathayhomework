@@ -2,11 +2,13 @@ package dev.reece.cathayhomework.main.plant;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.Picasso;
 
 import dev.reece.cathayhomework.R;
@@ -17,6 +19,8 @@ import dev.reece.cathayhomework.data.model.Plant;
  */
 
 public class PlantInfoView extends ScrollView implements PlantInfoContract.View {
+
+    private ProgressBar mProgressBar;
 
     private ImageView mImg;
     private TextView mInfo;
@@ -39,6 +43,8 @@ public class PlantInfoView extends ScrollView implements PlantInfoContract.View 
     private void init() {
         inflate(getContext(), R.layout.plant_info_layout, this);
 
+        mProgressBar = findViewById(R.id.plant_info_progressbar);
+
         mImg = findViewById(R.id.plant_info_img);
         mInfo = findViewById(R.id.plant_info_info);
 
@@ -48,7 +54,25 @@ public class PlantInfoView extends ScrollView implements PlantInfoContract.View 
     @Override
     public void showPlantInfo(Plant plant) {
         if(plant.picUrl != null && !plant.picUrl.isEmpty()) {
-            Picasso.get().load(plant.picUrl).into(mImg);
+            Picasso.get().load(plant.picUrl).memoryPolicy(MemoryPolicy.NO_CACHE).into(mImg, new Callback() {
+                @Override
+                public void onSuccess() {
+                    mProgressBar.setVisibility(GONE);
+                    mImg.setVisibility(VISIBLE);
+                    mInfo.setVisibility(VISIBLE);
+                }
+
+                @Override
+                public void onError(Exception e) {
+                    mProgressBar.setVisibility(GONE);
+                    mImg.setVisibility(VISIBLE);
+                    mInfo.setVisibility(VISIBLE);
+                }
+            });
+        } else {
+            mProgressBar.setVisibility(GONE);
+            mImg.setVisibility(VISIBLE);
+            mInfo.setVisibility(VISIBLE);
         }
 
         mInfo.setText(getInfoString(plant));

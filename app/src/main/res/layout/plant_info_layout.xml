@@ -5,18 +5,26 @@
     android:layout_height="match_parent"
     >
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@android:color/white">
+        android:background="@android:color/white"
+        >
 
+        <ProgressBar
+            android:id="@+id/plant_info_progressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            />
         <ImageView
             android:id="@+id/plant_info_img"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:scaleType="fitXY"
+            android:visibility="gone"
             tools:background="@android:color/holo_red_dark"
             tools:layout_height="250dp"
             />
@@ -25,10 +33,12 @@
             android:id="@+id/plant_info_info"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_below="@+id/plant_info_img"
             android:layout_margin="8dp"
             android:textColor="#333333"
+            android:visibility="gone"
             tools:text="黃花風鈴木 \nGolden bell tree、Golden trumpet tree\n\n別名\n黃鐘木、伊蓓樹、依蓓樹\n\n簡介\n原產於中南美洲墨西哥、巴西、烏拉圭等國家，為巴西國花，偏好高溫氣候，臺灣目前大多種植於中南部，中南部開花狀況優於北部。花期3月，僅持續10天左右。\n\n辨認方式\n喬木，高度4~5公尺，在冬季會落葉。葉片呈手掌狀，分裂成5枚小葉，小葉呈卵形或長橢圓形，邊緣呈稀疏鋸齒狀，整片葉布滿褐色毛，觸感粗糙。花朵長度5~8公分，呈漏斗狀或風鈴狀，有5枚花瓣，呈金黃色，邊緣皺曲。果實細長，成熟後會裂開，表面佈滿褐色絨毛，有利傳播種子。葉片及果實表面的細毛有輕微毒性，皮膚接觸可能發癢。"
             />
 
-    </LinearLayout>
+    </RelativeLayout>
 </merge>
