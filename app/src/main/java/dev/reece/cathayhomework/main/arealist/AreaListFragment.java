@@ -36,7 +36,6 @@ public class AreaListFragment extends BaseFragment {
                 Navigator.newInstance()
                         .fragment(fragment)
                         .isAddToBack(true)
-                        .isAnimate(true)
                         .navigate(getActivity());
             }
         });

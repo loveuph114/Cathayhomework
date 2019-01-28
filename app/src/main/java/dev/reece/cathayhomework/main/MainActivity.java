@@ -34,14 +34,12 @@ public class MainActivity extends AppCompatActivity implements IToolbarControlle
             Navigator.newInstance()
                     .fragment(new AreaListFragment())
                     .isAddToBack(false)
-                    .isAnimate(false)
                     .navigate(this);
 
             setupBackStackChange();
         } else {
             // TODO handle error
         }
-
 
     }
 

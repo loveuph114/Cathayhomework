@@ -41,7 +41,6 @@ public class AreaInfoFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        Log.d("REECE", "AreaInfoFragment onCreateView()");
         AreaInfoView view = new AreaInfoView(getActivity());
         view.setOnToPlantPageListener(new OnToPlantPageListener() {
             @Override
@@ -50,7 +49,6 @@ public class AreaInfoFragment extends BaseFragment {
                 Navigator.newInstance()
                         .fragment(fragment)
                         .isAddToBack(true)
-                        .isAnimate(true)
                         .navigate(getActivity());
             }
         });

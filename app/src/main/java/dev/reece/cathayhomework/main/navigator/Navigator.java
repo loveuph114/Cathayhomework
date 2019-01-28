@@ -15,7 +15,6 @@ public class Navigator {
 
     private Fragment mFragment;
     private boolean mIsAddToBack = false;
-    private boolean mIsAnimate = false;
 
     public static Navigator newInstance() {
         return new Navigator();
@@ -28,10 +27,6 @@ public class Navigator {
 
         FragmentManager fragmentManger =  activity.getFragmentManager();
         FragmentTransaction transaction = fragmentManger.beginTransaction();
-
-        if(mIsAnimate) {
-            transaction.setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out, android.R.animator.fade_in, android.R.animator.fade_out);
-        }
 
         if(mIsAddToBack) {
             transaction.addToBackStack(mFragment.getClass().getName());
@@ -51,8 +46,4 @@ public class Navigator {
         return this;
     }
 
-    public Navigator isAnimate(boolean isAnimate) {
-        mIsAnimate = isAnimate;
-        return this;
-    }
 }
