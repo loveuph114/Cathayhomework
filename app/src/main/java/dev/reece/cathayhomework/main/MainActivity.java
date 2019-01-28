@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import dev.reece.cathayhomework.R;
 import dev.reece.cathayhomework.data.model.AreaPlantData;
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements IToolbarControlle
 
             setupBackStackChange();
         } else {
-            // TODO handle error
+            Toast.makeText(this, R.string.loading_error, Toast.LENGTH_SHORT).show();
         }
 
     }

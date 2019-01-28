@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -61,6 +62,7 @@ public class AreaInfoView extends ConstraintLayout implements AreaInfoContract.V
     @Override
     public void showError() {
         mProgressBar.setVisibility(GONE);
+        Toast.makeText(getContext(), R.string.loading_error, Toast.LENGTH_SHORT).show();
     }
 
     public void setOnToPlantPageListener(OnToPlantPageListener listener) {

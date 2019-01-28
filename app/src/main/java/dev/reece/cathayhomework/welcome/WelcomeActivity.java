@@ -52,6 +52,6 @@ public class WelcomeActivity extends AppCompatActivity implements WelcomeContrac
 
     @Override
     public void showError() {
-
+        Toast.makeText(this, R.string.loading_error, Toast.LENGTH_SHORT).show();
     }
 }

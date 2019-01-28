@@ -2,6 +2,7 @@
     <string name="app_name">CathayHomework</string>
 
     <string name="welcome_loading">資料讀取中</string>
+    <string name="loading_error">資料讀取錯誤</string>
 
     <string name="main_title">"台北市立動物園"</string>
     <string name="area_list_item_no_memo">無休館資訊</string>

@@ -17,6 +17,6 @@ public class AreaInfoPlantItemTitleViewHolder extends AreaInfoViewHolder {
 
     @Override
     public void onBind(Object data) {
-
+        // do nothing here
     }
 }
