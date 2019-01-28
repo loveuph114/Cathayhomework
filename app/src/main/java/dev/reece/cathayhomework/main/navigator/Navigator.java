@@ -32,6 +32,8 @@ public class Navigator {
             transaction.addToBackStack(mFragment.getClass().getName());
         }
 
+        transaction.setCustomAnimations(0,0, 0, R.animator.fragment_animator_pop);
+
         transaction.add(R.id.main_container, mFragment);
         transaction.commit();
     }
