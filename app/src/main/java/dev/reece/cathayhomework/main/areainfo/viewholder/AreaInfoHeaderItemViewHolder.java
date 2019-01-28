@@ -2,11 +2,15 @@ package dev.reece.cathayhomework.main.areainfo.viewholder;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.support.v7.widget.RecyclerView;
 import android.text.util.Linkify;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.Picasso;
 
 import dev.reece.cathayhomework.R;
@@ -42,6 +46,7 @@ public class AreaInfoHeaderItemViewHolder extends AreaInfoViewHolder<IAreaInfoIt
             final Area area = ((AreaInfoHeaderItem) data).getData();
 
             if(area.picUrl != null && !area.picUrl.isEmpty()) {
+                mImg.getLayoutParams().height = calculatePicHeight((AreaInfoHeaderItem) data);
                 Picasso.get().load(area.picUrl).into(mImg);
             }
 
@@ -62,5 +67,16 @@ public class AreaInfoHeaderItemViewHolder extends AreaInfoViewHolder<IAreaInfoIt
                 }
             });
         }
+    }
+
+    private int calculatePicHeight(AreaInfoHeaderItem data) {
+        int screenWidth = itemView.getResources().getDisplayMetrics().widthPixels;
+
+        float width = data.getPicWidth();
+        float height = data.getPciHeight();
+
+        float scale = width / height;
+
+        return (int) (screenWidth / scale);
     }
 }

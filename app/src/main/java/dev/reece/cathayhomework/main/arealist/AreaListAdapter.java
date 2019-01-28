@@ -49,8 +49,8 @@ public class AreaListAdapter extends RecyclerView.Adapter<AreaListItemViewHolder
         holder.onBind(mData.get(position));
 
         if(holder.getAdapterPosition() > mLastPosition) {
-            Animation a = AnimationUtils.loadAnimation(holder.itemView.getContext(), R.anim.item_animation_up);
-            holder.itemView.startAnimation(a);
+            Animation animation = AnimationUtils.loadAnimation(holder.itemView.getContext(), R.anim.item_animation_up);
+            holder.itemView.startAnimation(animation);
 
             mLastPosition = holder.getAdapterPosition();
         } else {

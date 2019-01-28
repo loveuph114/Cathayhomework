@@ -6,7 +6,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.animation.AnimationUtils;
-import android.view.animation.LayoutAnimationController;
 
 import java.util.ArrayList;
 
@@ -45,7 +44,7 @@ public class AreaListView extends ConstraintLayout implements AreaListContract.V
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.addItemDecoration(new AreaListDecoration());
-        mRecyclerView.setLayoutAnimation(AnimationUtils.loadLayoutAnimation(getContext(), R.anim.layout_animation_down));
+        mRecyclerView.setLayoutAnimation(AnimationUtils.loadLayoutAnimation(getContext(), R.anim.layout_animation_up));
 
         mAdapter = new AreaListAdapter();
         mRecyclerView.setAdapter(mAdapter);

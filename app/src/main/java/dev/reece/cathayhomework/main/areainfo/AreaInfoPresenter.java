@@ -1,5 +1,11 @@
 package dev.reece.cathayhomework.main.areainfo;
 
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
+
 import java.util.ArrayList;
 
 import dev.reece.cathayhomework.data.model.Area;
@@ -36,9 +42,31 @@ public class AreaInfoPresenter implements AreaInfoContract.Presenter {
     @Override
     public void processAreaInfo(Area area) {
         if(mAreaItems.isEmpty()) {
-            mAreaItems.add(new AreaInfoHeaderItem(area));
-            searchPlantDataByArea(area);
+            startProcess(area);
         }
+    }
+
+    private void startProcess(final Area area) {
+        Picasso.get().load(area.picUrl).into(new Target() {
+            @Override
+            public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+                AreaInfoHeaderItem item = new AreaInfoHeaderItem(area, bitmap.getWidth(), bitmap.getHeight());
+                mAreaItems.add(item);
+                searchPlantDataByArea(area);
+            }
+
+            @Override
+            public void onBitmapFailed(Exception e, Drawable errorDrawable) {
+                AreaInfoHeaderItem item = new AreaInfoHeaderItem(area, 0, 0);
+                mAreaItems.add(item);
+                searchPlantDataByArea(area);
+            }
+
+            @Override
+            public void onPrepareLoad(Drawable placeHolderDrawable) {
+
+            }
+        });
     }
 
     private void searchPlantDataByArea(Area area) {

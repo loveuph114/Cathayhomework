@@ -5,6 +5,7 @@ import android.support.constraint.ConstraintLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
+import android.widget.ProgressBar;
 
 import java.util.ArrayList;
 
@@ -18,6 +19,7 @@ import dev.reece.cathayhomework.main.navigator.OnToPlantPageListener;
 
 public class AreaInfoView extends ConstraintLayout implements AreaInfoContract.View {
 
+    private ProgressBar mProgressBar;
     private RecyclerView mRecyclerView;
     private AreaInfoAdapter mAdapter;
 
@@ -39,24 +41,26 @@ public class AreaInfoView extends ConstraintLayout implements AreaInfoContract.V
     private void init() {
         inflate(getContext(), R.layout.area_info_layout, this);
 
-        mRecyclerView = findViewById(R.id.area_recyclerview);
+        mProgressBar = findViewById(R.id.area_info_progressbar);
+
+        mRecyclerView = findViewById(R.id.area_info_recyclerview);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.addItemDecoration(new AreaInfoDecoration());
 
         mAdapter = new AreaInfoAdapter();
         mRecyclerView.setAdapter(mAdapter);
-
     }
 
     @Override
     public void showAreaInfo(ArrayList<IAreaInfoItem> data) {
+        mProgressBar.setVisibility(GONE);
         mAdapter.setData(data);
     }
 
     @Override
     public void showError() {
-
+        mProgressBar.setVisibility(GONE);
     }
 
     public void setOnToPlantPageListener(OnToPlantPageListener listener) {
