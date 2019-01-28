@@ -1,15 +1,13 @@
 package dev.reece.cathayhomework.welcome;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
+import dev.reece.cathayhomework.R;
 import dev.reece.cathayhomework.data.api.ApiClient;
 import dev.reece.cathayhomework.data.api.ApiService;
-import dev.reece.cathayhomework.R;
-import dev.reece.cathayhomework.data.model.Area;
 import dev.reece.cathayhomework.data.model.AreaPlantData;
 import dev.reece.cathayhomework.main.MainActivity;
 import io.reactivex.disposables.CompositeDisposable;

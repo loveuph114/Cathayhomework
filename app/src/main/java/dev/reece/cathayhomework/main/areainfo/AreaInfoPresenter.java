@@ -73,7 +73,7 @@ public class AreaInfoPresenter implements AreaInfoContract.Presenter {
         ArrayList<String> areaNameList = getAreaNameList(area);
         ArrayList<Plant> plantList = DataManager.getInstance().getPlantList();
 
-        mCompositeDisposable.add(searchFromBackground(areaNameList, plantList)
+        mCompositeDisposable.add(searchPlantInBackground(areaNameList, plantList)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(new DisposableSingleObserver<ArrayList<IAreaInfoItem>>(){
@@ -94,6 +94,9 @@ public class AreaInfoPresenter implements AreaInfoContract.Presenter {
                 }));
     }
 
+    /**
+     * 處理部分 location 資料 mapping 不起來的問題
+     */
     private ArrayList<String> getAreaNameList(Area area) {
         String areaName = area.name;
         ArrayList<String> areaMappingList = new ArrayList<>();
@@ -113,7 +116,7 @@ public class AreaInfoPresenter implements AreaInfoContract.Presenter {
         return areaMappingList;
     }
 
-    private Single<ArrayList<IAreaInfoItem>> searchFromBackground(final ArrayList<String> areaNameList, final ArrayList<Plant> plantList) {
+    private Single<ArrayList<IAreaInfoItem>> searchPlantInBackground(final ArrayList<String> areaNameList, final ArrayList<Plant> plantList) {
         return  Flowable.zip(Flowable.just(areaNameList), Flowable.just(plantList),
                 new BiFunction<ArrayList<String>, ArrayList<Plant>, ArrayList<IAreaInfoItem>>() {
                     @Override

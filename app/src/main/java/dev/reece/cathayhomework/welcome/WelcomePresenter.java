@@ -4,7 +4,6 @@ import android.util.Log;
 
 import dev.reece.cathayhomework.data.api.LoadException;
 import dev.reece.cathayhomework.data.model.AreaPlantData;
-import dev.reece.cathayhomework.data.model.Plant;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.observers.DisposableSingleObserver;
 
