@@ -81,44 +81,34 @@ public class PlantInfoView extends ScrollView implements PlantInfoContract.View 
     private String getInfoString(Plant plant) {
         StringBuilder builder = new StringBuilder();
 
-        append(builder, plant.nameCh);
-        appendNewline(builder);
-        append(builder, plant.nameEn);
-        appendNewline(builder);
-        appendNewline(builder);
-        append(builder, getContext().getString(R.string.plant_info_also_known));
-        appendNewline(builder);
-        append(builder, plant.alsoKnown);
-        appendNewline(builder);
-        appendNewline(builder);
-        append(builder, getContext().getString(R.string.plant_info_brief));
-        appendNewline(builder);
-        append(builder, plant.brief);
-        appendNewline(builder);
-        appendNewline(builder);
-        append(builder, getContext().getString(R.string.plant_info_feature));
-        appendNewline(builder);
-        append(builder, plant.feature);
-        appendNewline(builder);
-        appendNewline(builder);
-        append(builder, getContext().getString(R.string.plant_info_function_application));
-        appendNewline(builder);
-        append(builder, plant.functionAndApplication);
-        appendNewline(builder);
-        appendNewline(builder);
-        append(builder, getContext().getString(R.string.plant_info_update, plant.update));
-        appendNewline(builder);
+        builder.append(plant.nameCh);
+        builder.append("\n");
+        builder.append(plant.nameEn);
+        builder.append("\n");
+        builder.append("\n");
+        builder.append(getContext().getString(R.string.plant_info_also_known));
+        builder.append("\n");
+        builder.append(plant.alsoKnown);
+        builder.append("\n");
+        builder.append("\n");
+        builder.append(getContext().getString(R.string.plant_info_brief));
+        builder.append("\n");
+        builder.append(plant.brief);
+        builder.append("\n");
+        builder.append("\n");
+        builder.append(getContext().getString(R.string.plant_info_feature));
+        builder.append("\n");
+        builder.append(plant.feature);
+        builder.append("\n");
+        builder.append("\n");
+        builder.append(getContext().getString(R.string.plant_info_function_application));
+        builder.append("\n");;
+        builder.append(plant.functionAndApplication);
+        builder.append("\n");
+        builder.append("\n");
+        builder.append(getContext().getString(R.string.plant_info_update, plant.update));
+        builder.append("\n");
 
         return builder.toString();
-    }
-
-    private void append(StringBuilder builder, String string) {
-        if(!"".equals(string)) {
-            builder.append(string);
-        }
-    }
-
-    private void appendNewline(StringBuilder builder) {
-        builder.append("\n");
     }
 }
